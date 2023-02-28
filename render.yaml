@@ -1,0 +1,6 @@
+services:
+- type: web
+  name: python_flash
+  env: docker
+  dockerfilePath: ./Dockerfile
+  dockerContext: .
