@@ -19,8 +19,11 @@ def profile():
     else:
         return name
 
-@app.route('/about/')
-def about():
-    return render_template('about.html')
+@app.route('/index')
+def index():
+    user = { 'nickname': 'Miguel' } # fake user
+    return render_template("index.html",
+        title = 'Home',
+        user = user)
 
-app.run("0.0.0.0",port = "80")
+app.run("0.0.0.0",port = "80",debug = True)
