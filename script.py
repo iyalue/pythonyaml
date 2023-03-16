@@ -9,6 +9,13 @@ def hello_world():
 def hello_guest(guest):
    return 'Hello %s as Guest' % guest
 
+@app.route('/user/<name>')
+def hello_user(name):
+   if name =='admin':
+      return redirect(url_for('hello_world'))
+   else:
+      return redirect(url_for('hello_guest', guest = name))
+
 @app.route('/profile/',methods=['GET','POST'])
 def profile():
     name = request.args.get('name')
