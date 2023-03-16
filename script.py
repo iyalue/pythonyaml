@@ -5,9 +5,9 @@ app = Flask(__name__)
 def hello_world():
    return 'Hello World'
 
-@app.route('/login/',methods=['GET','POST'])
-def login():
-    return 'login page'
+@app.route('/guest/<guest>')
+def hello_guest(guest):
+   return 'Hello %s as Guest' % guest
 
 @app.route('/profile/',methods=['GET','POST'])
 def profile():
