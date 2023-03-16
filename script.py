@@ -28,9 +28,6 @@ def profile():
 
 @app.route('/index')
 def index():
-    user = { 'nickname': 'Miguel' } # fake user
-    return render_template("index.html",
-        title = 'Home',
-        user = user)
+    return render_template("login.html")
 
 app.run("0.0.0.0",port = "80",debug = True)
