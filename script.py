@@ -30,6 +30,10 @@ def profile():
 def index():
     return render_template("login.html")
 
+@app.route('/success/<name>')
+def success(name):
+    return 'welcome %s' % name
+
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
    if request.method == 'POST':
