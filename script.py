@@ -30,4 +30,15 @@ def profile():
 def index():
     return render_template("login.html")
 
+@app.route('/login',methods = ['POST', 'GET'])
+def login():
+   if request.method == 'POST':
+      print(1)
+      user = request.form['nm']
+      return redirect(url_for('success',name = user))
+   else:
+      print(2)
+      user = request.args.get('nm')
+      return redirect(url_for('success',name = user))
+
 app.run("0.0.0.0",port = "80",debug = True)
