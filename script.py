@@ -2,8 +2,14 @@ from flask import Flask,render_template,url_for,redirect,request
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-   return 'Hello World'
+def student():
+   return render_template('student.html')
+
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+   if request.method == 'POST':
+      result = request.form
+      return render_template("result.html",result = result)
 
 @app.route('/guest/<guest>')
 def hello_guest(guest):
